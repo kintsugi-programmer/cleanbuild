@@ -34,8 +34,7 @@ fnm use
 To install and launch the project, run these commands:
 
 ```shell
-yarn
-yarn start
+
 ```
 
 ### How to Use

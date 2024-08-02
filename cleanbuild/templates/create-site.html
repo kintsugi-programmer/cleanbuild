@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Cleanfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function addProject() {
+            const projectContainer = document.getElementById('projects');
+            const projectIndex = projectContainer.children.length;
+
+            const projectDiv = document.createElement('div');
+            projectDiv.classList.add('project');
+
+            projectDiv.innerHTML = `
+                <h3>Project ${projectIndex + 1}</h3>
+                <label for="project-name-${projectIndex}">Name:</label>
+                <input type="text" id="project-name-${projectIndex}" name="project-name-${projectIndex}" required>
+                
+                <label for="project-description-${projectIndex}">Description:</label>
+                <input type="text" id="project-description-${projectIndex}" name="project-description-${projectIndex}" required>
+                
+                <label for="project-stack-${projectIndex}">Stack:</label>
+                <input type="text" id="project-stack-${projectIndex}" name="project-stack-${projectIndex}" required>
+                
+                <label for="project-sourceCode-${projectIndex}">Source Code:</label>
+                <input type="text" id="project-sourceCode-${projectIndex}" name="project-sourceCode-${projectIndex}" required>
+                
+                <label for="project-livePreview-${projectIndex}">Live Preview:</label>
+                <input type="text" id="project-livePreview-${projectIndex}" name="project-livePreview-${projectIndex}" required>
+            `;
+
+            projectContainer.appendChild(projectDiv);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Cleanfolio</h1>
+        <form id="create-site" action="/submit" method="post">
+            <label for="homepage">Homepage Link:</label>
+            <input type="text" id="homepage" name="homepage" required placeholder="https://kintsugi-programmer.github.io/cleanfolio">
+            
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required placeholder="Cleanfolio">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Name">
+
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role" required placeholder="Developer">
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required placeholder="Hello world, I am a Super Developer ;0 ">
+
+            <label for="resume">Resume Link:</label>
+            <input type="text" id="resume" name="resume" required placeholder="Drive Link">
+
+            <label for="github">Github Link:</label>
+            <input type="text" id="github" name="github" required placeholder="Github Link">
+
+            <label for="linkedin">LinkedIn Link:</label>
+            <input type="text" id="linkedin" name="linkedin" required placeholder="LinkedIn Link">
+
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" name="skills" required placeholder="Text format : 'skill1','skill2','skill3' ">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Email">
+
+            <div id="projects">
+                <h2>Projects</h2>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <label for="project-name-0">Name:</label>
+                    <input type="text" id="project-name-0" name="project-name-0" required>
+                    
+                    <label for="project-description-0">Description:</label>
+                    <input type="text" id="project-description-0" name="project-description-0" required>
+                    
+                    <label for="project-stack-0">Stack:</label>
+                    <input type="text" id="project-stack-0" name="project-stack-0" required>
+                    
+                    <label for="project-sourceCode-0">Source Code:</label>
+                    <input type="text" id="project-sourceCode-0" name="project-sourceCode-0" required>
+                    
+                    <label for="project-livePreview-0">Live Preview:</label>
+                    <input type="text" id="project-livePreview-0" name="project-livePreview-0" required>
+                </div>
+            </div>
+            <button type="button" onclick="addProject()">Add Another Project</button>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
